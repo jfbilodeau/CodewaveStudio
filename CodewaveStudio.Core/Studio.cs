@@ -87,4 +87,12 @@ public class Studio
     {
         Waves.Clear();
     }
+
+    /// <summary>
+    /// Sorts the waves in the studio by name in ascending order.
+    /// </summary>
+    public void Sort()
+    {
+        Waves.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
+    }
 }
