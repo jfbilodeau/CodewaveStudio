@@ -95,4 +95,12 @@ public class Studio
     {
         Waves.Sort((a, b) => string.Compare(a.Name, b.Name, StringComparison.Ordinal));
     }
+
+    /// <summary>
+    /// Sorts the waves in the studio by name in descending order.
+    /// </summary>
+    public void ReverseSort()
+    {
+        Waves.Sort((a, b) => string.Compare(b.Name, a.Name, StringComparison.Ordinal));
+    }
 }
