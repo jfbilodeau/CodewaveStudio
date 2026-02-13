@@ -23,4 +23,6 @@ public class Studio
             throw new ArgumentException("Waves collection must not contain null entries.", nameof(waves));
         }
     }
+
+    // TODO: Add methods for managing waves, such as adding, removing, or retrieving waves.
 }
