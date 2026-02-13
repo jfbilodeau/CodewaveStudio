@@ -24,5 +24,67 @@ public class Studio
         }
     }
 
-    // TODO: Add methods for managing waves, such as adding, removing, or retrieving waves.
+    /// <summary>
+    /// Adds a wave to the studio.
+    /// </summary>
+    /// <param name="wave">The wave to add.</param>
+    /// <exception cref="ArgumentNullException">Thrown when wave is null.</exception>
+    public void AddWave(Wave wave)
+    {
+        if (wave == null)
+        {
+            throw new ArgumentNullException(nameof(wave), "Wave must not be null.");
+        }
+
+        Waves.Add(wave);
+    }
+
+    /// <summary>
+    /// Removes a wave from the studio.
+    /// </summary>
+    /// <param name="wave">The wave to remove.</param>
+    /// <returns>True if the wave was removed, false otherwise.</returns>
+    public bool RemoveWave(Wave wave)
+    {
+        if (wave == null)
+        {
+            return false;
+        }
+
+        return Waves.Remove(wave);
+    }
+
+    /// <summary>
+    /// Removes a wave from the studio by its ID.
+    /// </summary>
+    /// <param name="id">The ID of the wave to remove.</param>
+    /// <returns>True if the wave was removed, false otherwise.</returns>
+    public bool RemoveWaveById(Guid id)
+    {
+        var wave = Waves.FirstOrDefault(w => w.Id == id);
+        if (wave == null)
+        {
+            return false;
+        }
+
+        return Waves.Remove(wave);
+    }
+
+    /// <summary>
+    /// Retrieves a wave by its ID.
+    /// </summary>
+    /// <param name="id">The ID of the wave to retrieve.</param>
+    /// <returns>The wave if found, null otherwise.</returns>
+    public Wave? GetWaveById(Guid id)
+    {
+        return Waves.FirstOrDefault(w => w.Id == id);
+    }
+
+    /// <summary>
+    /// Clears all waves from the studio.
+    /// </summary>
+    public void ClearWaves()
+    {
+        Waves.Clear();
+    }
 }
